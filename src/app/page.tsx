@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Link from "next/link";
 import { SurahCard } from "./components/SurahCard";
+import Spinner from "./components/Spinner";
 
 interface SurahProps {
   nomor: number;
@@ -32,10 +33,11 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+    <main className="min-h-screen grid place-items-center">
+      <Spinner size={48} border={5} />
+      {/* atau kecil: <Spinner size={24} border={3} /> */}
+    </main>
+  );
   }
 
   if (isError) {
