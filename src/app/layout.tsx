@@ -3,6 +3,15 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./components/Providers";
 
+// Menambahkan Font Family Dari Google Font
+import { Amiri_Quran } from "next/font/google";
+
+export const amiri = Amiri_Quran({
+  weight: ['400'],
+  subsets: ["arabic"],
+  variable: '--font-amiri'
+})
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
