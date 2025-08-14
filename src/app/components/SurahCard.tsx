@@ -12,7 +12,7 @@ interface SurahCardProps {
 
 export const SurahCard = ({ data }: SurahCardProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto mt-6 md:mt-24">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-6 md:mt-24">
       {data?.map((surah) => (
         <div
           className="flex items-center justify-between gap-8 bg-slate-800 p-4 rounded-lg border border-slate-700 cursor-pointer"
@@ -24,9 +24,7 @@ export const SurahCard = ({ data }: SurahCardProps) => {
               {surah.nomor}
             </div>
             <div className="">
-              <h4 className="font-bold text-lg md:w-24 lg:w-48">
-                {surah.namaLatin}
-              </h4>
+              <h4 className="font-bold text-lg lg:w-48">{surah.namaLatin}</h4>
               <p className="text-slate-400 text-sm">{surah.arti}</p>
             </div>
           </div>
