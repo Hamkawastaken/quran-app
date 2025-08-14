@@ -2,7 +2,6 @@
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Link from "next/link";
 import { SurahCard } from "./components/SurahCard";
 import Spinner from "./components/Spinner";
 
@@ -33,17 +32,21 @@ export default function Home() {
 
   if (isLoading) {
     return (
-    <main className="min-h-screen grid place-items-center">
-      <Spinner size={48} border={5} />
-      {/* atau kecil: <Spinner size={24} border={3} /> */}
-    </main>
-  );
+      <main className="min-h-screen grid place-items-center">
+        <Spinner size={48} border={5} />
+        {/* atau kecil: <Spinner size={24} border={3} /> */}
+      </main>
+    );
   }
 
   if (isError) {
     return (
       <>
-        <p>Error 404 Not Found</p>
+        <div className="min-h-screen flex flex-col items-center justify-center p-4">
+          <p className="font-black text-2xl bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            Error 404 Not Found
+          </p>
+        </div>
       </>
     );
   }
