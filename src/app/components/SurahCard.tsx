@@ -24,7 +24,7 @@ export const SurahCard = ({ data }: SurahCardProps) => {
               {surah.nomor}
             </div>
             <div className="">
-              <h4 className="font-bold text-lg lg:w-48">{surah.namaLatin}</h4>
+              <h4 className="font-bold text-lg">{surah.namaLatin}</h4>
               <p className="text-slate-400 text-sm">{surah.arti}</p>
             </div>
           </div>
