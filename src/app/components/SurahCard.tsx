@@ -1,3 +1,4 @@
+
 type Surah = {
   nomor: number;
   nama: string;
@@ -12,7 +13,7 @@ interface SurahCardProps {
 
 export const SurahCard = ({ data }: SurahCardProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-6 md:mt-24">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-6 md:mt-12">
       {data?.map((surah) => (
         <div
           className="flex items-center justify-between gap-8 bg-slate-800 p-4 rounded-lg border border-slate-700 cursor-pointer"

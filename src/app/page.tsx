@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { SurahCard } from "./components/SurahCard";
 import Spinner from "./components/Spinner";
+import { SearchBar } from "./components/SearchBar";
+import { useState } from "react";
 
 interface SurahProps {
   nomor: number;
@@ -22,6 +24,8 @@ enum TempatTurun {
 }
 
 export default function Home() {
+  const [search, setSearch] = useState("");
+
   const { data, isLoading, isError } = useQuery<SurahProps[]>({
     queryKey: ["daftar-surah"],
     queryFn: async () => {
@@ -29,6 +33,10 @@ export default function Home() {
       return response.data.data;
     },
   });
+
+  const filteredData = data?.filter((surah) =>
+    surah.namaLatin.toLowerCase().includes(search.toLowerCase())
+  );
 
   if (isLoading) {
     return (
@@ -63,7 +71,8 @@ export default function Home() {
             saja dan di mana saja, disertai dengan terjemahan
           </p>
 
-          <SurahCard data={data ?? []} />
+          <SearchBar onSearch={setSearch} />
+          <SurahCard data={filteredData ?? []} />
         </div>
       </main>
     </>
