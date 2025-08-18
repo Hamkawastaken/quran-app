@@ -32,6 +32,27 @@ const SurahPage = () => {
             </div>
           </div>
         </div>
+
+        <div className="w-3xl border-slate-500">
+          <div className="flex flex-col mt-12 gap-4">
+            <div className="size-12 rounded-lg text-cyan-500 bg-slate-800 flex items-center font-bold justify-center">
+              1
+            </div>
+            <div className="font-amiri text-2xl place-self-end ">
+              وَاِذَا قِيْلَ لَهُمْ لَا تُفْسِدُوْا فِى الْاَرْضِۙ قَالُوْٓا
+              اِنَّمَا نَحْنُ مُصْلِحُوْنَ
+            </div>
+            <div className="italic text-slate-500">
+              Wa iżā qīla lahum lā tufsidū fil-arḍ(i), qālū innamā naḥnu
+              muṣliḥūn(a).
+            </div>
+            <div className="">
+              Apabila dikatakan kepada mereka, “Janganlah berbuat kerusakan di
+              bumi,” mereka menjawab, “Sesungguhnya kami hanyalah orang-orang
+              yang melakukan perbaikan.”
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
