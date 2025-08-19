@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type Surah = {
   nomor: number;
   nama: string;
@@ -14,7 +16,8 @@ export const SurahCard = ({ data }: SurahCardProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-6 md:mt-12">
       {data?.map((surah) => (
-        <div
+        <Link
+          href={`/surah/${surah.nomor}`}
           className="flex items-center justify-between gap-8 bg-slate-800 p-4 rounded-lg border border-slate-700 cursor-pointer hover:bg-gradient-to-br from-slate-800 to-250% to-cyan-500 transition-all ease-in-out hover:border-cyan-700 group"
           key={surah.nomor}
         >
@@ -33,7 +36,7 @@ export const SurahCard = ({ data }: SurahCardProps) => {
             <h4 className="text-2xl font-amiri text-cyan-500">{surah.nama}</h4>
             <p className="text-slate-400 text-sm">{surah.jumlahAyat} Ayat</p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
