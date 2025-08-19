@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, Bookmark } from "./Icons";
 import axios from "axios";
 import Spinner from "./Spinner";
+import Link from "next/link";
 
 export interface AyatProps {
   nomor: number;
@@ -79,10 +80,13 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
       <div className="min-h-screen flex flex-col justify-center items-center p-4">
         <div className="mx-auto w-80 md:w-2xl lg:w-3xl bg-slate-800 p-4 rounded-lg border border-slate-700 px-4 mt-12">
           <div className="flex justify-between font-medium">
-            <div className="flex justify-between gap-x-2 items-center">
+            <Link
+              href={"/"}
+              className="flex justify-between gap-x-2 items-center"
+            >
               <ArrowLeft />
               <div className="text-xs md:text-base">Daftar Surah</div>
-            </div>
+            </Link>
             <div className="flex justify-between gap-x-2 items-center">
               <Bookmark />
               <div className="text-xs md:text-base">Bookmark</div>
@@ -120,9 +124,13 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
                 <div className="font-amiri text-xl md:text-2xl place-self-end text-end">
                   {surah.teksArab}
                 </div>
-                <div className="italic text-sm md:text-base text-slate-500">{surah.teksLatin}</div>
-                <div className="text-sm md:text-base">{surah.teksIndonesia}</div>
-              </div> 
+                <div className="italic text-sm md:text-base text-slate-500">
+                  {surah.teksLatin}
+                </div>
+                <div className="text-sm md:text-base">
+                  {surah.teksIndonesia}
+                </div>
+              </div>
             );
           })}
         </div>
