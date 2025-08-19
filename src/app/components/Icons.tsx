@@ -25,7 +25,7 @@ export const ArrowLeft = () => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="size-4"
+      className="size-3 md:size-4"
     >
       <path
         strokeLinecap="round"
@@ -44,7 +44,7 @@ export const Bookmark = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-4"
+      className="size-3 md:size-4"
     >
       <path
         strokeLinecap="round"

@@ -77,48 +77,52 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
   return (
     <>
       <div className="min-h-screen flex flex-col justify-center items-center p-4">
-        <div className="w-3xl bg-slate-800 p-4 rounded-lg border border-slate-700 px-4 mt-12">
+        <div className="mx-auto w-80 md:w-2xl lg:w-3xl bg-slate-800 p-4 rounded-lg border border-slate-700 px-4 mt-12">
           <div className="flex justify-between font-medium">
             <div className="flex justify-between gap-x-2 items-center">
               <ArrowLeft />
-              <div>Daftar Surah</div>
+              <div className="text-xs md:text-base">Daftar Surah</div>
             </div>
             <div className="flex justify-between gap-x-2 items-center">
               <Bookmark />
-              <div>Bookmark</div>
+              <div className="text-xs md:text-base">Bookmark</div>
             </div>
           </div>
 
-          <div className="flex flex-col items-center">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <div className="flex flex-col items-center mt-4">
+            <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
               {data?.namaLatin}
             </h2>
-            <h1 className="font-amiri text-4xl mt-2 font-bold">{data?.nama}</h1>
-            <p className="mt-2 text-slate-500">{data?.arti}</p>
+            <h1 className="font-amiri text-2xl md:text-4xl mt-2 font-bold">
+              {data?.nama}
+            </h1>
+            <p className="mt-0 md:mt-2 text-slate-500 text-sm md:text-base">
+              {data?.arti}
+            </p>
             <div className="flex flex-row gap-x-2 mt-2">
-              <div className="bg-slate-700 text-slate-500 rounded-full px-3 py-1">
+              <div className="text-xs md:text-base bg-slate-700 text-slate-500 rounded-full px-3 py-1">
                 {data?.jumlahAyat} Ayat
               </div>
-              <div className="bg-slate-700 text-slate-500 rounded-full px-3 py-1">
+              <div className="text-xs md:text-base bg-slate-700 text-slate-500 rounded-full px-3 py-1">
                 {data?.tempatTurun}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="w-3xl border-slate-500">
+        <div className="mx-auto w-80 md:w-2xl lg:w-3xl border-slate-500">
           {data?.ayat.map((surah) => {
             return (
               <div className="flex flex-col mt-12 gap-4" key={surah.nomorAyat}>
-                <div className="size-12 rounded-lg text-cyan-500 bg-slate-800 flex items-center font-bold justify-center">
+                <div className="size-8 md:size-12 text-sm md:text-base rounded-lg text-cyan-500 bg-slate-800 flex items-center font-bold justify-center">
                   {surah.nomorAyat}
                 </div>
-                <div className="font-amiri text-2xl place-self-end text-end ">
+                <div className="font-amiri text-xl md:text-2xl place-self-end text-end">
                   {surah.teksArab}
                 </div>
-                <div className="italic text-slate-500">{surah.teksLatin}</div>
-                <div className="">{surah.teksIndonesia}</div>
-              </div>
+                <div className="italic text-sm md:text-base text-slate-500">{surah.teksLatin}</div>
+                <div className="text-sm md:text-base">{surah.teksIndonesia}</div>
+              </div> 
             );
           })}
         </div>
