@@ -1,11 +1,13 @@
 "use client";
 
 import { SurahDetailPage } from "@/app/components/SurahDetailPage";
+import React from "react";
 
-const SurahPage = () => {
+const SurahPage = ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = React.use(params);
   return (
     <>
-      <SurahDetailPage params={{ nomor: "4" }} />
+      <SurahDetailPage params={{ nomor: slug }} />
     </>
   );
 };
