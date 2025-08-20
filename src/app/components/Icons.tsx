@@ -1,8 +1,8 @@
-type IconProps = {
-  className?: string;
-};
+import React from "react";
 
-export const SearchIcon = ({ className }: IconProps) => {
+type IconProps = React.SVGProps<SVGSVGElement>;
+
+export const SearchIcon = (props: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +10,7 @@ export const SearchIcon = ({ className }: IconProps) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${className}`}
+      className={`${props.className}`}
     >
       <path
         strokeLinecap="round"
@@ -21,7 +21,7 @@ export const SearchIcon = ({ className }: IconProps) => {
   );
 };
 
-export const ArrowLeft = ({ className }: IconProps) => {
+export const ArrowLeft = (props: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ export const ArrowLeft = ({ className }: IconProps) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${className}`}
+      className={`${props.className}`}
     >
       <path
         strokeLinecap="round"
@@ -40,7 +40,7 @@ export const ArrowLeft = ({ className }: IconProps) => {
   );
 };
 
-export const Bookmark = ({ className }: IconProps) => {
+export const Bookmark = (props: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,8 @@ export const Bookmark = ({ className }: IconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`${className}`}
+      className={`${props.className}`}
+      {...props}
     >
       <path
         strokeLinecap="round"
@@ -59,7 +60,7 @@ export const Bookmark = ({ className }: IconProps) => {
   );
 };
 
-export const PlayIcon = ({ className }: IconProps) => {
+export const PlayIcon = (props: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +68,7 @@ export const PlayIcon = ({ className }: IconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`${className}`}
+      className={`${props.className}`}
     >
       <path
         strokeLinecap="round"
@@ -78,7 +79,7 @@ export const PlayIcon = ({ className }: IconProps) => {
   );
 };
 
-export const CopyIcon = ({ className }: IconProps) => {
+export const CopyIcon = (props: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +87,7 @@ export const CopyIcon = ({ className }: IconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`${className}`}
+      className={`${props.className}`}
     >
       <path
         strokeLinecap="round"

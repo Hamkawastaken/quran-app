@@ -52,6 +52,20 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
     },
   });
 
+  const handleBookmark = (ayat: Ayat) => {
+    // Mengambil Data Lama Bookmark
+    const stored = localStorage.getItem("bookmarks");
+    const bookmarks: Ayat[] = stored ? JSON.parse(stored) : [];
+
+    // Cek Jika Double
+    const exist = bookmarks.find((b) => b.nomorAyat === data?.nomor);
+    if (exist) return;
+
+    // Tambah ke bookmark
+    const newBookmarks = [...bookmarks, ayat];
+    localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
+  };
+
   console.log(data);
 
   if (isLoading) {
@@ -140,7 +154,10 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
                 <div className="border-y py-4 border-slate-800">
                   <div className="flex items-center place-self-end gap-x-4 text-slate-500">
                     <CopyIcon className="size-5 cursor-pointer" />
-                    <Bookmark className="size-5 cursor-pointer" />
+                    <Bookmark
+                      className="size-5 cursor-pointer"
+                      onClick={() => handleBookmark(surah)}
+                    />
                     <div className="bg-slate-800 text-slate-500 px-4 py-1 rounded-lg cursor-pointer">
                       <span className="flex items-center gap-x-1">
                         <PlayIcon className="size-6" />

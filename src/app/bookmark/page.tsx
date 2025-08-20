@@ -2,8 +2,19 @@
 
 import Link from "next/link";
 import { ArrowLeft, Bookmark } from "../components/Icons";
+import { Ayat } from "../components/SurahDetailPage";
+import { useEffect, useState } from "react";
 
 const BookmarkPage = () => {
+  const [bookmarks, setBookmarks] = useState<Ayat[]>([]);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("bookmarks");
+    if (stored) {
+      setBookmarks(JSON.parse(stored));
+    }
+  }, []);
+
   return (
     <>
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
@@ -34,22 +45,40 @@ const BookmarkPage = () => {
           </div>
           {/* Empty State Card */}
           <div className="mx-auto bg-slate-800/40 rounded-2xl p-12 text-center border border-slate-700">
-            <div className="flex justify-center mb-6">
-              <Bookmark className="size-12" />
-            </div>
-            <h2 className="text-base md:text-lg font-semibold mb-2">
-              Belum Ada Ayat Tersimpan
-            </h2>
-            <p className="text-gray-400 text-xs md:text-sm mb-8">
-              Tandai ayat favorit Anda di halaman detail surah untuk
-              menyimpannya di sini.
-            </p>
-            <Link
-              href="/"
-              className="px-4 md:px-6 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 transition text-white text-sm md:text-base font-medium"
-            >
-              Mulai Membaca
-            </Link>
+            {bookmarks.length === 0 ? (
+              <>
+                <div className="flex justify-center mb-6">
+                  <Bookmark className="size-12" />
+                </div>
+                <h2 className="text-base md:text-lg font-semibold mb-2">
+                  Belum Ada Ayat Tersimpan
+                </h2>
+                <p className="text-gray-400 text-xs md:text-sm mb-8">
+                  Tandai ayat favorit Anda di halaman detail surah untuk
+                  menyimpannya di sini.
+                </p>
+                <Link
+                  href="/"
+                  className="px-4 md:px-6 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 transition text-white text-sm md:text-base font-medium"
+                >
+                  Mulai Membaca
+                </Link>
+              </>
+            ) : (
+              bookmarks.map((ayat) => (
+                <div
+                  key={ayat.teksArab}
+                  className="p-4 mb-2 rounded-lg bg-slate-800 text-white"
+                >
+                  <p className="text-cyan-400 font-bold">{ayat.nomorAyat}</p>
+                  <p className="font-amiri text-xl text-right">
+                    {ayat.teksArab}
+                  </p>
+                  <p className="italic text-slate-400">{ayat.teksLatin}</p>
+                  <p>{ayat.teksIndonesia}</p>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
