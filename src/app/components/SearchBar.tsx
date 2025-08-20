@@ -1,4 +1,5 @@
-import { SearchIcon } from "./Icons";
+import Link from "next/link";
+import { Bookmark, SearchIcon } from "./Icons";
 
 export const SearchBar = ({
   onSearch,
@@ -10,8 +11,15 @@ export const SearchBar = ({
       <div className="mt-8">
         <div className="relative group">
           <span className="absolute inset-y-0 left-0 flex justify-center items-center px-3 md:px-5">
-            <SearchIcon />
+            <SearchIcon className="size-3 md:size-5 text-slate-500" />
           </span>
+          <Link
+            href={"/bookmark"}
+            className="absolute inset-y-3 rounded-full right-3 flex justify-center items-center border border-cyan-600 px-3 bg-cyan-950 cursor-pointer"
+          >
+            <Bookmark className="size-3 md:size-5 mr-2 text-cyan-500" />
+            <p className="text-sm font-semibold text-cyan-500">Bookmarks</p>
+          </Link>
           <input
             type="text"
             placeholder="Cari Nama Surah Disini..."

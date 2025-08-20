@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, Bookmark } from "./Icons";
+import { ArrowLeft, Bookmark, CopyIcon, PlayIcon } from "./Icons";
 import axios from "axios";
 import Spinner from "./Spinner";
 import Link from "next/link";
@@ -136,6 +136,18 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
                 </div>
                 <div className="text-sm md:text-base">
                   {surah.teksIndonesia}
+                </div>
+                <div className="border-y py-4 border-slate-800">
+                  <div className="flex items-center place-self-end gap-x-4 text-slate-500">
+                    <CopyIcon className="size-5 cursor-pointer" />
+                    <Bookmark className="size-5 cursor-pointer" />
+                    <div className="bg-slate-800 text-slate-500 px-4 py-1 rounded-lg cursor-pointer">
+                      <span className="flex items-center gap-x-1">
+                        <PlayIcon className="size-6" />
+                        <p className="text-sm">Play</p>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

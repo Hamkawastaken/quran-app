@@ -24,10 +24,12 @@ const BookmarkPage = () => {
 
             {/* Title */}
             <div className="text-center mb-10">
-              <h1 className="text-2xl font-bold text-teal-400">
+              <h1 className="text-2xl md:text-3xl font-bold text-teal-400">
                 Ayat Tersimpan
               </h1>
-              <p className="text-gray-400 text-sm">0 ayat ditandai</p>
+              <p className="text-gray-400 text-sm md:text-base">
+                0 ayat ditandai
+              </p>
             </div>
           </div>
           {/* Empty State Card */}
