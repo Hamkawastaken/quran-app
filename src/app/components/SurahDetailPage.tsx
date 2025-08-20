@@ -82,15 +82,22 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
           <div className="flex justify-between font-medium">
             <Link
               href={"/"}
-              className="flex justify-between gap-x-2 items-center"
+              className="flex justify-between gap-x-2 items-center group"
             >
-              <ArrowLeft />
-              <div className="text-xs md:text-base">Daftar Surah</div>
+              <ArrowLeft className="size-4 group-hover:text-cyan-500 transition-all" />
+              <div className="text-xs md:text-base group-hover:text-cyan-500 transition-all">
+                Daftar Surah
+              </div>
             </Link>
-            <div className="flex justify-between gap-x-2 items-center">
-              <Bookmark />
-              <div className="text-xs md:text-base">Bookmark</div>
-            </div>
+            <Link
+              href={"/bookmark"}
+              className="flex justify-between gap-x-2 items-center cursor-pointer group"
+            >
+              <Bookmark className="size-4 group-hover:text-cyan-500 transition-all" />
+              <div className="text-xs md:text-base group-hover:text-cyan-500 transition-all">
+                Bookmark
+              </div>
+            </Link>
           </div>
 
           <div className="flex flex-col items-center mt-4">

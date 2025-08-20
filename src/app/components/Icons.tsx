@@ -1,4 +1,8 @@
-export const SearchIcon = () => {
+type IconProps = {
+  className?: string;
+};
+
+export const SearchIcon = ({ className }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +10,7 @@ export const SearchIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="size-4 md:size-6 text-slate-500"
+      className={`${className}`}
     >
       <path
         strokeLinecap="round"
@@ -17,7 +21,7 @@ export const SearchIcon = () => {
   );
 };
 
-export const ArrowLeft = () => {
+export const ArrowLeft = ({ className }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +29,7 @@ export const ArrowLeft = () => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="size-3 md:size-4"
+      className={`${className}`}
     >
       <path
         strokeLinecap="round"
@@ -36,7 +40,7 @@ export const ArrowLeft = () => {
   );
 };
 
-export const Bookmark = () => {
+export const Bookmark = ({ className }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +48,7 @@ export const Bookmark = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-3 md:size-4"
+      className={`${className}`}
     >
       <path
         strokeLinecap="round"
