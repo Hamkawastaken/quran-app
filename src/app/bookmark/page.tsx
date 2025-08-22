@@ -46,7 +46,17 @@ const BookmarkPage = () => {
           {/* Empty State Card */}
           {bookmarks.length === 0 ? (
             <div className="mx-auto bg-slate-800/40 rounded-2xl p-12 text-center border border-slate-700">
-              <h1>Halo</h1>
+              <div className="flex flex-col items-center justify-center gap-4">
+                <h1 className="italic text-sm md:text-lg">
+                  Belum Ada Ayat Yang Tersimpan
+                </h1>
+                <Link
+                  href={"/"}
+                  className="px-4 py-2 bg-gradient-to-l from-teal-600 to-110% to-cyan-500 rounded-lg cursor-pointer font-semibold"
+                >
+                  Mulai Membaca
+                </Link>
+              </div>
             </div>
           ) : (
             <>
