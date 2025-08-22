@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Bookmark } from "../components/Icons";
+import { ArrowLeft } from "../components/Icons";
 import { Ayat } from "../components/SurahDetailPage";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,7 @@ const BookmarkPage = () => {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen flex flex-col items-center justify-center gap-y-6 p-4">
         <div className="w-64 mx-auto md:w-3xl">
           <div className="grid grid-cols-1 md:grid-cols-3">
             <Link
@@ -39,47 +39,32 @@ const BookmarkPage = () => {
                 Ayat Tersimpan
               </h1>
               <p className="text-gray-400 text-sm md:text-base">
-                0 ayat ditandai
+                {bookmarks.length} ayat ditandai
               </p>
             </div>
           </div>
           {/* Empty State Card */}
-          <div className="mx-auto bg-slate-800/40 rounded-2xl p-12 text-center border border-slate-700">
-            {bookmarks.length === 0 ? (
-              <>
-                <div className="flex justify-center mb-6">
-                  <Bookmark className="size-12" />
-                </div>
-                <h2 className="text-base md:text-lg font-semibold mb-2">
-                  Belum Ada Ayat Tersimpan
-                </h2>
-                <p className="text-gray-400 text-xs md:text-sm mb-8">
-                  Tandai ayat favorit Anda di halaman detail surah untuk
-                  menyimpannya di sini.
-                </p>
-                <Link
-                  href="/"
-                  className="px-4 md:px-6 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 transition text-white text-sm md:text-base font-medium"
-                >
-                  Mulai Membaca
-                </Link>
-              </>
-            ) : (
-              bookmarks.map((ayat) => (
-                <div
-                  key={ayat.teksArab}
-                  className="p-4 mb-2 rounded-lg bg-slate-800 text-white"
-                >
-                  <p className="text-cyan-400 font-bold">{ayat.nomorAyat}</p>
-                  <p className="font-amiri text-xl text-right">
-                    {ayat.teksArab}
-                  </p>
-                  <p className="italic text-slate-400">{ayat.teksLatin}</p>
-                  <p>{ayat.teksIndonesia}</p>
-                </div>
-              ))
-            )}
-          </div>
+          {bookmarks.length === 0 ? (
+            <div className="mx-auto bg-slate-800/40 rounded-2xl p-12 text-center border border-slate-700">
+              <h1>Halo</h1>
+            </div>
+          ) : (
+            <>
+              {bookmarks.map((ayat) => {
+                return (
+                  <div
+                    key={ayat.teksArab}
+                    className="mx-auto text-right mb-4 flex gap-x-4 items-center justify-between bg-slate-800/40 rounded-2xl px-4 py-8 md:p-12 border border-slate-700"
+                  >
+                    <div className="bg-slate-800 px-4 py-2 rounded-lg text-cyan-500 font-semibold">
+                      {ayat.nomorAyat}
+                    </div>
+                    <div className="text-xl">{ayat.teksArab}</div>
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
       </div>
     </>

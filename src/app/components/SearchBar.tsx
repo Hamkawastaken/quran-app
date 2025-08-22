@@ -15,10 +15,12 @@ export const SearchBar = ({
           </span>
           <Link
             href={"/bookmark"}
-            className="absolute inset-y-3 rounded-full right-3 flex justify-center items-center border border-cyan-600 px-3 bg-cyan-950 cursor-pointer"
+            className="absolute inset-y-0 my-2 md:my-0 md:inset-y-3 rounded-full right-3 flex justify-center items-center md:border md:border-cyan-600 md:px-3 md:bg-cyan-950 cursor-pointer"
           >
-            <Bookmark className="size-3 md:size-5 mr-2 text-cyan-500" />
-            <p className="text-sm font-semibold text-cyan-500">Bookmarks</p>
+            <Bookmark className="size-4 md:size-5 mr-2 text-cyan-500 ml-2 md:ml-0" />
+            <p className="text-sm font-semibold text-cyan-500 hidden md:flex">
+              Bookmarks
+            </p>
           </Link>
           <input
             type="text"

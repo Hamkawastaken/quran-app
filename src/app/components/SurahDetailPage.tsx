@@ -24,6 +24,7 @@ export interface Ayat {
   teksLatin: string;
   teksIndonesia: string;
   audio: { [key: string]: string };
+  surahNomor: number;
 }
 
 export interface SuratSenya {
@@ -52,21 +53,32 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
     },
   });
 
-  const handleBookmark = (ayat: Ayat) => {
-    // Mengambil Data Lama Bookmark
+  type BookmarkAyat = Ayat & { surahNomor: number };
+
+  const toggleBookmark = (surahNomor: number, ayat: Ayat) => {
+    // Ambil data lama
     const stored = localStorage.getItem("bookmarks");
-    const bookmarks: Ayat[] = stored ? JSON.parse(stored) : [];
+    const bookmarks: BookmarkAyat[] = stored ? JSON.parse(stored) : [];
 
-    // Cek Jika Double
-    const exist = bookmarks.find((b) => b.nomorAyat === data?.nomor);
-    if (exist) return;
+    // bikin ID unik surah:ayat
+    const ayatId = `${surahNomor}:${ayat.nomorAyat}`;
 
-    // Tambah ke bookmark
-    const newBookmarks = [...bookmarks, ayat];
-    localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
+    // cek apakah sudah ada
+    const exist = bookmarks.find(
+      (b) => `${b.surahNomor}:${b.nomorAyat}` === ayatId
+    );
+
+    let updatedBookmarks;
+    if (exist) {
+      updatedBookmarks = bookmarks.filter(
+        (b) => `${b.surahNomor}:${b.nomorAyat}` !== ayatId
+      );
+    } else {
+      updatedBookmarks = [...bookmarks, { ...ayat, surahNomor }];
+    }
+
+    localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
   };
-
-  console.log(data);
 
   if (isLoading) {
     return (
@@ -156,7 +168,7 @@ export const SurahDetailPage = ({ params }: SurahDetailPageProps) => {
                     <CopyIcon className="size-5 cursor-pointer" />
                     <Bookmark
                       className="size-5 cursor-pointer"
-                      onClick={() => handleBookmark(surah)}
+                      onClick={() => toggleBookmark(data.nomor, surah)}
                     />
                     <div className="bg-slate-800 text-slate-500 px-4 py-1 rounded-lg cursor-pointer">
                       <span className="flex items-center gap-x-1">
